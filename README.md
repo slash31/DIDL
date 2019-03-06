@@ -1,6 +1,6 @@
 # DIDL: Device Interface Description Language
   
-*Version: 1.0.0*
+*Version: 1.0.1*
 
 ##Table of Contents
 
@@ -8,8 +8,8 @@
       * [Abstract](#abstract)
       * [Introduction](#introduction)
       * [Specification](#specification)
-         * [Device Interface Description Language Specification](#device-interface-description-language-specification)
-         * [Application](#application)
+         * [Overview](#overview)
+         * [Scope and Application](#scope-and-application)
          * [Maximum Length](#maximum-length)
          * [DIDL Objects](#didl-objects)
          * [DIDL Set Schema and Definition](#didl-set-schema-and-definition)
@@ -32,11 +32,11 @@ By ensuring that every link has a codified device interface description based on
 
 ## Specification
 
-### Device Interface Description Language Specification
+### Overview
 
 ***DIDL*** is a codified language for naming network device interfaces which is comprised of an ordered sequence of codified DIDL Objects (DIDLOs), separated by a standard delimiter. One full sequence of DIDLOs (a complete network interface description) is a ***DIDL Set.***
 
-### Application
+### Scope and Application
 
 DIDL is intended to be used for interfaces which interconnect network devices with other network devices; individual hosts have intentionally been left out of this specification.
 
@@ -102,7 +102,7 @@ If applicable, specify the upstream service provider (the end service an interfa
 
 *Freeform Value*
 
-If applicable, specify the circuit provider using a value from subsection *Provider Codes* in the *Reference* section of this document (if listed). This should be left empty for any interface which is not connected to a carrier-provided transport service.
+If applicable, specify the name of the circuit provider. This should be left empty for any interface which is not connected to a carrier-provided transport service.
 
 ##### Circuit ID
 
