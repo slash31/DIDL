@@ -2,7 +2,19 @@
   
 *Version: 1.0.0*
 
+##Table of Contents
 
+   * [DIDL: Device Interface Description Language](#didl-device-interface-description-language)
+      * [Abstract](#abstract)
+      * [Introduction](#introduction)
+      * [Specification](#specification)
+         * [Device Interface Description Language Specification](#device-interface-description-language-specification)
+         * [Application](#application)
+         * [Maximum Length](#maximum-length)
+         * [DIDL Objects](#didl-objects)
+         * [DIDL Set Schema and Definition](#didl-set-schema-and-definition)
+         * [Examples](#examples)
+            
 ## Abstract
 
 Network device interface descriptions are free-form text fields used for the purpose of providing additional information about an interface, such as interface purpose, type of connection, upstream device(s), and/or provider/circuit identifiers.
@@ -18,7 +30,7 @@ This document defines standard, codified interface description field conventions
 By ensuring that every link has a codified device interface description based on a standard format, clear documentation of the network, as well as automation/orchestration systems, can be built directly from the specification without having to survey every interface on every device. In addition, an attempt has been made to make the specification machine-friendly without losing all human readability.
 
 
-## Main Body
+## Specification
 
 ### Device Interface Description Language Specification
 
@@ -32,7 +44,7 @@ DIDL is intended to be used for interfaces which interconnect network devices wi
 
 The total length of any DIDL Set should never exceed 255 characters, which is the maximum length allowed by the SNMP ifAlias OID. Care should also be taken to ensure that the maximum length allowed by the target platform is not exceeded.
 
-### Object Types
+### DIDL Objects
 
 There are three types of DIDLOs: ***Uniform Values***, ***Formatted Values***, and ***Freeform Values***.
 
