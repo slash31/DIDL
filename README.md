@@ -5,7 +5,7 @@
 
 *Go straight to the [DIDL Generator](https://didl.me/generator.html) or [DIDL Validator](https://didl.me/validator.html)*
 
-##Table of Contents
+## Table of Contents
 
    
    * [Abstract](#abstract)
