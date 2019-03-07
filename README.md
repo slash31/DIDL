@@ -119,11 +119,11 @@ If applicable, specify the circuit ID (prepended with **CID#**) in the provider
 
 *Formatted Value*
 
-If applicable, specify the patch panel location/name and port which the interface is connected to, using the format [rack]-[RU pos 1]_[RU pos 2]-p[port 1]p[port 2]...
+If applicable, specify the patch panel location/name and port which the interface is connected to, using the format [rack]-U[RU pos 1]/[RU pos 2]-P[port 1]/[port 2]...
 
 This value should be empty for device-to-device or device-to-host direct connections.
 
-*Examples: E12-U44_45-p3p4 (LC ports 3/4 in 2U panel in rack E12), G08-U45-p12 (MPO port 12 in 1U panel in rack G08)*
+*Examples: E12-U44/45-P3/4 (LC ports 3/4 in 2U panel in rack E12), G08-U45-P12 (MPO port 12 in 1U panel in rack G08)*
 
 ##### Neighboring Device
 
@@ -257,42 +257,42 @@ This is a set of interfaces which connect one device to another within different
 Because the DIDLOs in a DIDL Set are positional/ordered, it's trivial to perform validation on it. This quick example uses a simple split command in Python:
 
 ```python
-didl_set = "EXT:IXP:Equinix Ashburn IX:Zayo:CID#OGYX/144317//ZYO:D15-U22p18p19:206.126.236.0/22::ae141:ACTIVE"
+didl_set = "EXT:ITR:Zayo Ashburn IX:Zayo:ZXY/234098/W209:XVAFA-U50-P12/14:ASH-DCR-01:et-0/0/8:ae123:RESERVED"
 objects = didl_set.split(":")
 format_issues = []
 if len(objects) != 10:
     print "Not a DIDL Set (value passed contains {} objects)".format(len(objects))
 else:
-	if objects[0] not in ['INT','EXT']:
-		format_issues.append("Location object is invalid".format(objects[9]))
-	if objects[1] not in ['ITR','IXP', 'PNI' 'PBB', 'IIC']:
-		format_issues.append("Function object is invalid ({})".format(objects[1]))
-	if objects[9] not in ['RESERVED','ACTIVE','INACTIVE','DECOMMMISSION']:
-		format_issues.append("State object is invalid ({})".format(objects[9]))
-	if len(didl_set) &gt; 255:
-		format_issues.append("DIDL Set is too long (contains {} chars, 255 is defined max)".format(len(didl_set)))
+    if objects[0] not in ['INT','EXT']:
+        format_issues.append("Location object is invalid".format(objects[9]))
+    if objects[1] not in ['ITR','IXP', 'PNI' 'PBB', 'IIC']:
+        format_issues.append("Function object is invalid ({})".format(objects[1]))
+    if objects[9] not in ['RESERVED','ACTIVE','INACTIVE','DECOMMMISSION']:
+        format_issues.append("State object is invalid ({})".format(objects[9]))
+    if len(didl_set) > 255:
+        format_issues.append("DIDL Set is too long (contains {} chars, 255 is defined max)".format(len(didl_set)))
 
-	if len(format_issues) == 0:
-		print """
-		
-			DIDL Set passed basic validation tests and contains the following objects:
-			Location: {0}
-			Function: {1}
-			Upstream Service: {2}
-			Circuit Provider: {3}
-			Circuit ID: {4}
-			Patch Panel Info: {5}
-			Neighbor Device: {6}
-			Neighbor Port: {7}
-			LAG Group: {8}
-			State: {9}
-			
-		""".format(objects[0], objects[1], objects[2], objects[3], objects[4], objects[5], objects[6], objects[7], objects[8], objects[9])
+    if len(format_issues) == 0:
+        print """
+        
+            DIDL Set passed basic validation tests and contains the following objects:
+            Location: {0}
+            Function: {1}
+            Upstream Service: {2}
+            Circuit Provider: {3}
+            Circuit ID: {4}
+            Patch Panel Info: {5}
+            Neighbor Device: {6}
+            Neighbor Port: {7}
+            LAG Group: {8}
+            State: {9}
+            
+        """.format(objects[0], objects[1], objects[2], objects[3], objects[4], objects[5], objects[6], objects[7], objects[8], objects[9])
 
-	else:
-		print "DIDL Set did not pass basic validation tests, the following issues were found:"
-		for issue in format_issues:
-			print issue
+    else:
+        print "DIDL Set did not pass basic validation tests, the following issues were found:"
+        for issue in format_issues:
+            print issue
 ```
 
 Which should return:
