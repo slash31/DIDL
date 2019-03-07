@@ -1,4 +1,9 @@
+# DIDL: Device Interface Description Language
+  
 *Version: 1.0.1*
+
+
+*Go straight to the [DIDL Generator](https://didl.me/generator.html) or [DIDL Validator](https://didl.me/validator.html)*
 
 ##Table of Contents
 
