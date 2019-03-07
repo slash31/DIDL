@@ -1,19 +1,17 @@
-# DIDL: Device Interface Description Language
-  
 *Version: 1.0.1*
 
 ##Table of Contents
 
-   * [DIDL: Device Interface Description Language](#didl-device-interface-description-language)
-      * [Abstract](#abstract)
-      * [Introduction](#introduction)
-      * [Specification](#specification)
-         * [Overview](#overview)
-         * [Scope and Application](#scope-and-application)
-         * [Maximum Length](#maximum-length)
-         * [DIDL Objects](#didl-objects)
-         * [DIDL Set Schema and Definition](#didl-set-schema-and-definition)
-         * [Examples](#examples)
+   
+   * [Abstract](#abstract)
+   * [Introduction](#introduction)
+   * [Specification](#specification)
+       * [Overview](#overview)
+       * [Scope and Application](#scope-and-application)
+       * [Maximum Length](#maximum-length)
+       * [DIDL Objects](#didl-objects)
+       * [DIDL Set Schema and Definition](#didl-set-schema-and-definition)
+       * [Examples](#examples)
             
 ## Abstract
 

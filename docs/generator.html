@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DIDL Set Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="blurBg-false" style="background-color:#EBEBEB">
+
+
+<link rel="stylesheet" href="files/dark-gray.css" type="text/css" />
+<script type="text/javascript" src="files/jquery.min.js"></script>
+<form class="default-dark-gray" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:600px;min-width:150px" method="post"><div class="title"><h2>DIDL Set Generator</h2></div>
+	<div class="element-separator"><hr><h3 class="section-break-title">Local Device Interface</h3></div>
+	<div class="element-select" title="Valid values are EXT (external) and INT (internal).
+
+EXT - for interfaces which are connected to devices belonging to another organization; typically these are transit, peering, or private network interconnect links
+
+INT - for interfaces which are connected to devices within the same organization"><label class="title">Location:</label><div class="large"><span><select name="location" >
+
+		<option value="EXT">EXT</option>
+		<option value="INT">INT</option></select><i></i></span></div></div>
+	<div class="element-select" title="Valid values are ITR (Internet transit), IXP (Internet exchange point), PNI (private network interconnect), PBB (production backbone), and IIC (internal interconnect):
+
+ITR - for interfaces which are directly connected to provider edge equipment for Internet transit service
+
+IXP - for interfaces which are directly connected to an Internet Exchange Point (provider-neutral peering exchange)
+
+PNI - for interfaces which are directly connected to partner or provider devices
+
+PBB - for interfaces which are connected to devices in other data centers via dedicated backbone circuits
+
+IIC - for interfaces which are connected to other network devices in the same organization via patch cables or simple cross connects"><label class="title">Function:</label><div class="large"><span><select name="function" >
+
+		<option value="ITR (Internet transit)">ITR (Internet transit)</option>
+		<option value="IXP (Internet exchange point)">IXP (Internet exchange point)</option>
+		<option value="PNI (private network interconnect)">PNI (private network interconnect)</option>
+		<option value="PBB (production backbone)">PBB (production backbone)</option>
+		<option value="IIC (internal interconnect)">IIC (internal interconnect)</option></select><i></i></span></div></div>
+	<div class="element-input"><label class="title">LAG Interface Name (leave blank if not a member of a LAG/AE):</label><input class="large" type="text" name="lag" /></div>
+	<div class="element-select"><label class="title">Administrative State:</label><div class="large"><span><select name="state" >
+
+		<option value="RESERVED">RESERVED</option>
+		<option value="INACTIVE">INACTIVE</option>
+		<option value="ACTIVE">ACTIVE</option>
+		<option value="DECOMMISSION		">DECOMMISSION		</option></select><i></i></span></div></div>
+	<div class="element-separator"><hr><h3 class="section-break-title">Connected Device/Provider</h3></div>
+	<div class="element-input"><label class="title">Neighboring Device Hostname/IP (leave blank if none):</label><input class="large" type="text" name="neighbor_device" /></div>
+	<div class="element-input"><label class="title">Neighboring Device Port (leave blank if none):</label><input class="large" type="text" name="neighbor_port" /></div>
+	<div class="element-input"><label class="title">Upstream Service Provider (leave blank if none):</label><input class="large" type="text" name="upstream_provider" /></div>
+	<div class="element-input"><label class="title">Circuit Provider (leave blank if none):</label><input class="large" type="text" name="circuit_provider" /></div>
+	<div class="element-input"><label class="title">Circuit ID (leave blank if none):</label><input class="large" type="text" name="circuit_id" /></div>
+	<div class="element-separator"><hr><h3 class="section-break-title">Patch Panel Info</h3></div>
+	<div class="element-input"><label class="title">Rack Name/ID:</label><input class="small" type="text" name="pp_rack" /></div>
+	<div class="element-select"><label class="title">Top RU Position:</label><div class="small"><span><select name="pp_position" >
+
+		<option value="01">01</option>
+		<option value="02">02</option>
+		<option value="03">03</option>
+		<option value="04">04</option>
+		<option value="05">05</option>
+		<option value="06">06</option>
+		<option value="07">07</option>
+		<option value="08">08</option>
+		<option value="09">09</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option value="24">24</option>
+		<option value="25">25</option>
+		<option value="26">26</option>
+		<option value="27">27</option>
+		<option value="28">28</option>
+		<option value="29">29</option>
+		<option value="30">30</option>
+		<option value="31">31</option>
+		<option value="32">32</option>
+		<option value="33">33</option>
+		<option value="34">34</option>
+		<option value="35">35</option>
+		<option value="36">36</option>
+		<option value="37">37</option>
+		<option value="38">38</option>
+		<option value="39">39</option>
+		<option value="40">40</option>
+		<option value="41">41</option>
+		<option value="42">42</option>
+		<option value="43">43</option>
+		<option value="44">44</option>
+		<option value="45">45</option>
+		<option value="46">46</option>
+		<option value="47">47</option>
+		<option value="48">48</option>
+		<option value="49">49</option>
+		<option value="50">50</option>
+		<option value="51">51</option>
+		<option value="52">52</option></select><i></i></span></div></div>
+	<div class="element-select"><label class="title">Bottom RU Position (leave blank for 1U panel):</label><div class="small"><span><select name="select3" >
+
+		<option value="---">---</option>
+		<option value="01">01</option>
+		<option value="02">02</option>
+		<option value="03">03</option>
+		<option value="04">04</option>
+		<option value="05">05</option>
+		<option value="06">06</option>
+		<option value="07">07</option>
+		<option value="08">08</option>
+		<option value="09">09</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option value="24">24</option>
+		<option value="25">25</option>
+		<option value="26">26</option>
+		<option value="27">27</option>
+		<option value="28">28</option>
+		<option value="29">29</option>
+		<option value="30">30</option>
+		<option value="31">31</option>
+		<option value="32">32</option>
+		<option value="33">33</option>
+		<option value="34">34</option>
+		<option value="35">35</option>
+		<option value="36">36</option>
+		<option value="37">37</option>
+		<option value="38">38</option>
+		<option value="39">39</option>
+		<option value="40">40</option>
+		<option value="41">41</option>
+		<option value="42">42</option>
+		<option value="43">43</option>
+		<option value="44">44</option>
+		<option value="45">45</option>
+		<option value="46">46</option>
+		<option value="47">47</option>
+		<option value="48">48</option>
+		<option value="49">49</option>
+		<option value="50">50</option>
+		<option value="51">51</option>
+		<option value="52">52</option></select><i></i></span></div></div>
+<div class="submit"><input type="submit" value="Create DIDL Set"/></div></form><p class="frmd">
+
+
+
+</body>
+</html>
