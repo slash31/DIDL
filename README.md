@@ -265,7 +265,7 @@ if len(objects) != 10:
 else:
     if objects[0] not in ['INT','EXT']:
         format_issues.append("Location object is invalid".format(objects[9]))
-    if objects[1] not in ['ITR','IXP', 'PNI' 'PBB', 'IIC']:
+    if objects[1] not in ['ITR','IXP', 'PNI', 'PBB', 'IIC']:
         format_issues.append("Function object is invalid ({})".format(objects[1]))
     if objects[9] not in ['RESERVED','ACTIVE','INACTIVE','DECOMMMISSION']:
         format_issues.append("State object is invalid ({})".format(objects[9]))
