@@ -257,7 +257,7 @@ This is a set of interfaces which connect one device to another within different
 Because the DIDLOs in a DIDL Set are positional/ordered, it's trivial to perform validation on it. This quick example uses a simple split command in Python:
 
 ```python
-didl_set = "EXT:ITR:Zayo Ashburn IX:Zayo:ZXY/234098/W209:XVAFA-U50-P12/14:ASH-DCR-01:et-0/0/8:ae123:RESERVED"
+didl_set = "EXT:ITR:Equinix Ashburn IX:Zayo:ZXY/234098/W209:D15-U45/44P12/14:206.126.236.0/31::ae123:RESERVED"
 objects = didl_set.split(":")
 format_issues = []
 if len(objects) != 10:
@@ -303,10 +303,10 @@ Location: EXT
 Function: IXP  
 Upstream Service: Equinix Ashburn IX  
 Circuit Provider: Zayo  
-Circuit ID: CID#OGYX/144317//ZYO  
-Patch Panel Info: D15-U22p18p19  
-Neighbor Device: 206.126.236.0/22  
+Circuit ID: CID#ZXY/234098/W209  
+Patch Panel Info: D15-U45/44P12/14  
+Neighbor Device: 206.126.236.0/31  
 Neighbor Port:  
-LAG Group: ae141  
-State: ACTIVE
+LAG Group: ae123  
+State: RESERVED
  
