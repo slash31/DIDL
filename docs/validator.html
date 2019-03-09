@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DIDL Validator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script language="javascript">
+		function checkDIDL() {
+			var didl_set = $( "#didl_set" ).val();
+			var didlos = didl_set.split(":");
+			var format_issues = '';
+			if ( didlos.length != 10 ) {
+				format_issues = '* Not a DIDL Set (value passed contains ' + didlos.length + ' objects)\n';
+			}
+			if ( ['INT','EXT'].indexOf(didlos[0]) ==  -1 ) {
+				format_issues += '* Location object is invalid (' + didlos[0] + ')\n';
+			}
+			
+			if ( ['ITR','IXP','PNI','PBB','IIC'].indexOf(didlos[1]) ==  -1 ) {
+				format_issues += '* Function object is invalid (' + didlos[1] + ') \n';
+			}
+			if ( ['RESERVED','ACTIVE','INACTIVE','DECOMMMISSION'].indexOf(didlos[9]) ==  -1 ) {
+				format_issues += '* State object is invalid (' + didlos[9] + ')\n';
+			}
+			if ( didl_set.length > 255 ) {
+				format_issues += '* DIDL Set exceeds 255 characters (' + didl_set.length + ')';
+			}
+
+			var didl_translation = ''
+            if ( format_issues.length > 0 ) {
+            	didl_translation = 'DIDL Set failed validation tests:\n\n' + format_issues + '\n';
+            } else {
+            	didl_translation = 'DIDL Set passed basic validation and contains the following objects:\n\n';
+            }
+            didl_translation += 'Location: ' + didlos[0] + '\n'
+            didl_translation += 'Function: ' + didlos[1] + '\n'
+            didl_translation += 'Upstream Service: ' + didlos[2] + '\n'
+            didl_translation += 'Circuit Provider: ' + didlos[3] + '\n'
+            didl_translation += 'Circuit ID: ' + didlos[4] + '\n'
+            didl_translation += 'Patch Panel Info: ' + didlos[5] + '\n'
+            didl_translation += 'Neighbor Device: ' + didlos[6] + '\n'
+            didl_translation += 'Neighbor Port: ' + didlos[7] + '\n'
+            didl_translation += 'LAG Group: ' + didlos[8] + '\n'
+            didl_translation += 'State: ' + didlos[9] + '\n'
+
+			alert(didl_translation)
+		}
+	</script>
+</head>
+<body class="blurBg-false" style="background-color:#EBEBEB">
+<link rel="stylesheet" href="files/dark-gray.css" type="text/css" />
+<script type="text/javascript" src="files/jquery.min.js"></script>
+<form class="default-dark-gray" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:600px;min-width:150px" method="post" onsubmit="checkDIDL();return false"><div class="title"><h2>DIDL Set Validator</h2></div>
+	<div class="element-separator"><hr><h3 class="section-break-title"></h3></div>
+	<div class="element-input"><label class="title">DIDL Set to Validate:</label><input class="large" type="text" id="didl_set" /></div>
+
+
+<div class="submit"><input type="submit" value="Validate DIDL Set"/></div></form><p class="frmd">
+
+</body>
+</html>
